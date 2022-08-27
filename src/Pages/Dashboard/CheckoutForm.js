@@ -13,7 +13,7 @@ const CheckoutForm = ({ appointment }) => {
 
     const { _id, price, patient, patientName } = appointment;
     useEffect(() => {
-        fetch('http://localhost:5050/create-payment-intent', {
+        fetch('https://doctor-portals-web.herokuapp.com/create-payment-intent', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -81,7 +81,7 @@ const CheckoutForm = ({ appointment }) => {
                     appointment: _id,
                     transactionId: paymentIntent.id
                 }
-                fetch(`http://localhost:5050/booking/${_id}`, {
+                fetch(`https://doctor-portals-web.herokuapp.com/booking/${_id}`, {
                     method: 'PATCH',
                     headers: {
                         'content-type': 'application/json',
